@@ -26,7 +26,7 @@ public class JoinTest {
     void testJoin() {
         String sql = "select p.name, p.phone, m.area " +
                 "from pg.phone p " +
-                "left join ms.address m on p.name = m.name";
+                "left join address m on p.name = m.name";
         List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
         Assertions.assertFalse(result.isEmpty());
         System.out.println(result);

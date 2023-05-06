@@ -33,7 +33,8 @@ astrub:
   # 开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询
   ignore-case: true
   schemas:
-    - name: ms
+    # 第一个schema为默认schema
+    - name: mysql
       driver: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/astrub
       user: root
@@ -95,7 +96,7 @@ public class JoinTest {
     void testJoin() {
         String sql = "select p.name, p.phone, m.area " +
                 "from pg.phone p " +
-                "left join ms.address m on p.name = m.name";
+                "left join address m on p.name = m.name";
         List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
         Assertions.assertFalse(result.isEmpty());
         System.out.println(result);
