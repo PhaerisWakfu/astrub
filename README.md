@@ -2,12 +2,10 @@
 
 > 极简代码与配置，实现异构jdbc联合查询
 
-## 使用
-
-### 安装
+## 安装
 `mvn clean install -DskipTests`
 
-### 引入依赖
+## 引入依赖
 ```xml
 <dependency>
     <groupId>com.phaeris.astrub</groupId>
@@ -28,8 +26,7 @@
 </dependency>
 ```
 
-### 配置
-
+## 配置
 ```yaml
 astrub:
   # 是否忽略大小写（默认false）
@@ -47,7 +44,8 @@ astrub:
       user: postgres
       password: 123456
 ```
-### 数据库脚本
+
+## 数据库脚本
 mysql
 ```mysql
 create table address
@@ -66,8 +64,8 @@ create table phone
     phone varchar
 );
 ```
-### 查询
 
+## 查询
 ```java
 package com.phaeris.astrub;
 
