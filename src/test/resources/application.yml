@@ -1,0 +1,15 @@
+astrub:
+  # 是否忽略大小写（默认false）
+  # 开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询
+  ignore-case: true
+  schemas:
+    - name: ds1
+      driver: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ds1
+      user: root
+      password: root
+    - name: ds2
+      driver: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ds2
+      user: root
+      password: root

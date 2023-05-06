@@ -1,0 +1,30 @@
+//created by phaeris on 2023/04/24
+
+//获取数据源配置
+getConfig(schemas, def)
+::=<<
+{
+  "version": "1.0",
+  "defaultSchema": "<def>",
+  "schemas": [
+  <schemas:{schema|
+    <jdbc(schema.name, schema.driver, schema.url, schema.user, schema.password)>
+  }; separator=",">
+  ]
+}
+>>
+
+jdbc(name, driver, url, user, password)
+::=<<
+{
+  "name": "<name>",
+  "type": "custom",
+  "factory": "org.apache.calcite.adapter.jdbc.JdbcSchema$Factory",
+  "operand": {
+    "jdbcDriver": "<driver>",
+    "jdbcUrl": "<url>",
+    "jdbcUser": "<user>",
+    "jdbcPassword": "<password>"
+  }
+}
+>>
