@@ -46,7 +46,7 @@ astrub:
 ```
 
 ## 数据库脚本
-mysql
+### mysql
 ```mysql
 create table address
 (
@@ -55,7 +55,7 @@ create table address
 )
     charset = utf8;
 ```
-pg
+### pg
 ```postgresql
 
 create table phone
