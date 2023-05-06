@@ -42,10 +42,10 @@ astrub:
       user: root
       password: root
     - name: ds2
-      driver: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/ds2
-      user: root
-      password: root
+      driver: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/ds2?currentSchema=astrub
+      user: postgres
+      password: 123456
 ```
 
 ### 查询
