@@ -36,21 +36,41 @@ astrub:
   # 开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询
   ignore-case: true
   schemas:
-    - name: ds1
+    - name: ms
       driver: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/ds1
+      url: jdbc:mysql://localhost:3306/astrub
       user: root
       password: root
-    - name: ds2
+    - name: pg
       driver: org.postgresql.Driver
-      url: jdbc:postgresql://localhost:5432/ds2?currentSchema=astrub
+      url: jdbc:postgresql://localhost:5432/astrub
       user: postgres
       password: 123456
 ```
+### 数据库脚本
+mysql
+```mysql
+create table address
+(
+    name varchar(200) null comment '名字',
+    area varchar(20)  null
+)
+    charset = utf8;
+```
+pg
+```postgresql
 
+create table phone
+(
+    name  varchar,
+    phone varchar
+);
+```
 ### 查询
 
 ```java
+package com.phaeris.astrub;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -67,7 +87,7 @@ import java.util.Map;
  * @since 2023/4/24
  */
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = TestApplication.class)
+@SpringBootTest
 public class JoinTest {
 
     @Autowired
@@ -76,16 +96,8 @@ public class JoinTest {
     @Test
     void testJoin() {
         String sql = "select p.name, p.phone, m.area " +
-                "from ds2.phone p " +
-                "left join ds1.address m on p.name = m.name";
-        List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
-        Assertions.assertFalse(result.isEmpty());
-        System.out.println(result);
-    }
-
-    @Test
-    void testCaseSensitive() {
-        String sql = "select * from ds1.car";
+                "from pg.phone p " +
+                "left join ms.address m on p.name = m.name";
         List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
         Assertions.assertFalse(result.isEmpty());
         System.out.println(result);

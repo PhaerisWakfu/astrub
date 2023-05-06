@@ -3,13 +3,13 @@ astrub:
   # 开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询
   ignore-case: true
   schemas:
-    - name: ds1
+    - name: ms
       driver: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/ds1
+      url: jdbc:mysql://localhost:3306/astrub
       user: root
       password: root
-    - name: ds2
+    - name: pg
       driver: org.postgresql.Driver
-      url: jdbc:postgresql://localhost:5432/ds2?currentSchema=astrub
+      url: jdbc:postgresql://localhost:5432/astrub
       user: postgres
       password: 123456
