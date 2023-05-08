@@ -10,10 +10,22 @@
 
     <description>基于calcite的异构jdbc查询方案</description>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://gitee.com/phaeris/astrub.git</connection>
+        <url>git:https://gitee.com/phaeris/astrub</url>
+    </scm>
+
     <developers>
         <developer>
-            <name>wyh</name>
-            <email>wangyahui@wehichina.com</email>
+            <name>phaeris</name>
+            <email>243409312@qq.com</email>
             <url>https://gitee.com/phaeris</url>
         </developer>
     </developers>
@@ -172,6 +184,7 @@
             </plugin>
         </plugins>
     </build>
+
     <!--  申明打包到Maven公有仓库  -->
     <distributionManagement>
         <snapshotRepository>
