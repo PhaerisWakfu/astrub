@@ -13,8 +13,18 @@ import java.util.LinkedList;
  */
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "astrub")
+@ConfigurationProperties(prefix = AstrubProperties.PREFIX)
 public class AstrubProperties {
+
+    /**
+     * 配置前缀
+     */
+    public static final String PREFIX = "astrub";
+
+    /**
+     * 是否注册datasource为bean
+     */
+    private boolean enabled;
 
     /**
      * 数据库（第一个是默认数据库）
@@ -22,10 +32,7 @@ public class AstrubProperties {
     private LinkedList<Schema> schemas;
 
     /**
-     * 是否忽略大小写, 默认false
-     * <p>
-     * <li>关闭的情况下, 需要建表的时候字段与表名都使用大写, 否则会有找不到表与字段的情况</>
-     * <li>开启的情况下, 可能会导致查询效率下降，因为 Calcite 将无法使用索引来加速查询</>
+     * 是否忽略表名字段名大小写
      */
     private boolean ignoreCase;
 }

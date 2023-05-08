@@ -28,7 +28,17 @@
 
 ## 配置
 ```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ds1?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
 astrub:
+  # 是否开启自动注册为数据源（如果本身已有数据源可能会导致覆盖的情况）
+  enabled: false
   # 是否忽略大小写（默认false）
   # 开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询
   ignore-case: true
@@ -87,17 +97,27 @@ import java.util.Map;
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class JoinTest {
+public class DatasourceTest {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+
     @Test
-    void testJoin() {
+    void testLocalDatasource() {
+        String sql = "select * from car";
+        List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
+        Assertions.assertFalse(result.isEmpty());
+        System.out.println(result);
+    }
+
+    @Test
+    void testCalcite() {
         String sql = "select p.name, p.phone, m.area " +
                 "from pg.phone p " +
                 "left join address m on p.name = m.name";
-        List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
+        JdbcTemplate calciteTemplate = new JdbcTemplate(ConnectionHelper.getDatasource());
+        List<Map<String, Object>> result = calciteTemplate.queryForList(sql);
         Assertions.assertFalse(result.isEmpty());
         System.out.println(result);
     }
