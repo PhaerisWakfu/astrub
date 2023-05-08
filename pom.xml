@@ -8,7 +8,11 @@
     <artifactId>astrub</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>astrub</name>
+
     <description>基于calcite的异构jdbc查询方案</description>
+
+    <url>https://gitee.com/phaeris/astrub</url>
 
     <licenses>
         <license>
