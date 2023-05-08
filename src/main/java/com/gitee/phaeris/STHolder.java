@@ -1,4 +1,4 @@
-package com.phaeris.astrub;
+package com.gitee.phaeris;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

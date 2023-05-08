@@ -1,4 +1,4 @@
-package com.phaeris.astrub;
+package com.gitee.phaeris;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

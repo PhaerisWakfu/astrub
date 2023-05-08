@@ -1,7 +1,7 @@
-package com.phaeris.astrub;
+package com.gitee.phaeris;
 
 import cn.hutool.core.io.FileUtil;
-import com.phaeris.astrub.config.AstrubProperties;
+import com.gitee.phaeris.config.AstrubProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;

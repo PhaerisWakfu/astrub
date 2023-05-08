@@ -1,6 +1,6 @@
-package com.phaeris.astrub.config;
+package com.gitee.phaeris.config;
 
-import com.phaeris.astrub.ConnectionHelper;
+import com.gitee.phaeris.ConnectionHelper;
 import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

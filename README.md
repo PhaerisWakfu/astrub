@@ -8,7 +8,7 @@
 ## 引入依赖
 ```xml
 <dependency>
-    <groupId>com.phaeris.astrub</groupId>
+    <groupId>com.gitee.phaeris</groupId>
     <artifactId>astrub</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
@@ -78,8 +78,7 @@ create table phone
 
 ## 查询
 ```java
-package com.phaeris.astrub;
-
+import com.gitee.phaeris.ConnectionHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
