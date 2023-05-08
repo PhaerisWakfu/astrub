@@ -14,19 +14,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
+import static com.gitee.phaeris.CalciteConstants.*;
+
 /**
  * @author wyh
  * @since 1.0
  */
 public class ConnectionHelper {
-
-    private static final String MODEL_NAME = "model";
-
-    private static final String CASE_SENSITIVE = "caseSensitive";
-
-    private static final String JDBC_PREFIX = "jdbc:calcite:";
-
-    private static final String CONFIG_PATH = "astrub.json";
 
     private static AstrubProperties astrubProperties;
 
@@ -67,6 +61,8 @@ public class ConnectionHelper {
         Properties info = new Properties();
         // 配置文件路径
         info.setProperty(MODEL_NAME, path);
+        // 设置SQL解析器为MYSQL
+        info.setProperty(LEX, LEX_MYSQL);
         if (ignoreCase) {
             // 设置大小写不敏感
             info.setProperty(CASE_SENSITIVE, String.valueOf(false));
