@@ -2,15 +2,12 @@
 
 > 极简代码与配置，实现异构jdbc联合查询
 
-## 安装
-`mvn clean install -DskipTests`
-
 ## 引入依赖
 ```xml
 <dependency>
     <groupId>com.gitee.phaeris</groupId>
     <artifactId>astrub</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
