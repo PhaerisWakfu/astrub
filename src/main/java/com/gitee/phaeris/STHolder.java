@@ -8,6 +8,8 @@ import org.stringtemplate.v4.STGroupFile;
 
 import java.util.List;
 
+import static com.gitee.phaeris.constants.STConstants.*;
+
 /**
  * @author wyh
  * @since 2022/8/3 11:00
@@ -15,14 +17,6 @@ import java.util.List;
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class STHolder {
-
-    private static final String TEMP_PATH = "templates/astrub.stg";
-
-    private static final String ST_NAME_GET_CONFIG = "getConfig";
-
-    private static final String ST_ARG_SCHEMAS = "schemas";
-
-    private static final String ST_ARG_DEFAULT = "def";
 
     private static final STGroupFile ST_GROUP_FILE = new STGroupFile(TEMP_PATH);
 

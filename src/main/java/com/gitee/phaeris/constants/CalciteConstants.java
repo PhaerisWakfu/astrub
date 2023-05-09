@@ -1,4 +1,4 @@
-package com.gitee.phaeris;
+package com.gitee.phaeris.constants;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ public class CalciteConstants {
 
     public static final String LEX = "lex";
 
-    public static final String LEX_MYSQL = "mysql";
+    public static final String DEFAULT_LEX = "mysql";
 
     public static final String JDBC_PREFIX = "jdbc:calcite:";
 }

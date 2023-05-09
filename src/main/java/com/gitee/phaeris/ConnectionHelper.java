@@ -1,6 +1,7 @@
 package com.gitee.phaeris;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.StrUtil;
 import com.gitee.phaeris.config.AstrubProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,10 +12,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Locale;
 import java.util.Properties;
 
-import static com.gitee.phaeris.CalciteConstants.*;
+import static com.gitee.phaeris.constants.CalciteConstants.*;
 
 /**
  * @author wyh
@@ -42,27 +42,27 @@ public class ConnectionHelper {
         if (schemas == null || schemas.isEmpty()) {
             throw new IllegalArgumentException("Please set your schema config.");
         }
-        schemas.forEach(s -> s.setName(s.getName().toUpperCase(Locale.ROOT)));
         String content = STHolder.getConfig(schemas, schemas.get(0).getName());
         String path = getPath();
         FileUtil.appendString(content, path, StandardCharsets.UTF_8);
-        return new CalciteDatasource(path, astrubProperties.isIgnoreCase());
+        return new CalciteDatasource(path, astrubProperties.getLex(), astrubProperties.isIgnoreCase());
     }
 
     /**
      * 根据calcite配置文件生成connection
      *
      * @param path       calcite配置文件路径
-     * @param ignoreCase 是否忽略大小写（开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询）
+     * @param ignoreCase 是否忽略大小写
+     * @param lex        sql语法解析器
      * @return 数据库连接
      * @throws SQLException 获取连接可能导致异常
      */
-    public static Connection getConnection(String path, boolean ignoreCase) throws SQLException {
+    public static Connection getConnection(String path, boolean ignoreCase, String lex) throws SQLException {
         Properties info = new Properties();
         // 配置文件路径
         info.setProperty(MODEL_NAME, path);
-        // 设置SQL解析器为MYSQL
-        info.setProperty(LEX, LEX_MYSQL);
+        // 设置SQL解析器
+        info.setProperty(LEX, StrUtil.isNotBlank(lex) ? lex : DEFAULT_LEX);
         if (ignoreCase) {
             // 设置大小写不敏感
             info.setProperty(CASE_SENSITIVE, String.valueOf(false));
@@ -79,7 +79,7 @@ public class ConnectionHelper {
         try {
             file.createNewFile();
         } catch (IOException e) {
-            throw new IllegalStateException("Init calcite config exception.");
+            throw new IllegalStateException("Init calcite config file exception.");
         }
         return file.getAbsolutePath();
     }
