@@ -7,7 +7,7 @@
 <dependency>
     <groupId>com.gitee.phaeris</groupId>
     <artifactId>astrub</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -36,9 +36,6 @@ spring:
 astrub:
   # 是否开启自动注册为数据源（如果本身已有数据源可能会导致覆盖的情况）
   enabled: false
-  # 是否忽略大小写（默认false）
-  # 开启则不要求表与字段都使用大写，但是可能会导致查询效率下降，因为Calcite将无法使用索引来加速查询
-  ignore-case: true
   schemas:
     # 第一个schema为默认schema
     - name: mysql
