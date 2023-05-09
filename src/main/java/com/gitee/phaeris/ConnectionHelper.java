@@ -3,6 +3,8 @@ package com.gitee.phaeris;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.gitee.phaeris.config.AstrubProperties;
+import org.apache.calcite.config.CalciteConnectionProperty;
+import org.apache.calcite.jdbc.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
@@ -50,6 +52,8 @@ public class ConnectionHelper {
 
     /**
      * 根据calcite配置文件生成connection
+     * <p>
+     * calcite properties支持哪些属性详见{@link org.apache.calcite.config.CalciteConnectionProperty}
      *
      * @param path       calcite配置文件路径
      * @param ignoreCase 是否忽略大小写
@@ -60,14 +64,14 @@ public class ConnectionHelper {
     public static Connection getConnection(String path, boolean ignoreCase, String lex) throws SQLException {
         Properties info = new Properties();
         // 配置文件路径
-        info.setProperty(MODEL_NAME, path);
+        info.setProperty(CalciteConnectionProperty.MODEL.camelName(), path);
         // 设置SQL解析器
-        info.setProperty(LEX, StrUtil.isNotBlank(lex) ? lex : DEFAULT_LEX);
+        info.setProperty(CalciteConnectionProperty.LEX.camelName(), StrUtil.isNotBlank(lex) ? lex : DEFAULT_LEX);
         if (ignoreCase) {
             // 设置大小写不敏感
-            info.setProperty(CASE_SENSITIVE, String.valueOf(false));
+            info.setProperty(CalciteConnectionProperty.CASE_SENSITIVE.camelName(), String.valueOf(false));
         }
-        return DriverManager.getConnection(JDBC_PREFIX, info);
+        return DriverManager.getConnection(Driver.CONNECT_STRING_PREFIX, info);
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")

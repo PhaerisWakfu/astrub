@@ -12,9 +12,9 @@ public class STConstants {
 
     public static final String TEMP_PATH = "templates/astrub.stg";
 
-    public static final String ST_NAME_GET_CONFIG = "getConfig";
+    public static final String FUNC_GET_CONFIG = "getConfig";
 
-    public static final String ST_ARG_SCHEMAS = "schemas";
+    public static final String ARG_SCHEMAS = "schemas";
 
-    public static final String ST_ARG_DEFAULT = "def";
+    public static final String ARG_DEFAULT_SCHEMA = "def";
 }

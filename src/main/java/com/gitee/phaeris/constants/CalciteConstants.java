@@ -12,13 +12,5 @@ public class CalciteConstants {
 
     public static final String CONFIG_PATH = "astrub.json";
 
-    public static final String MODEL_NAME = "model";
-
-    public static final String CASE_SENSITIVE = "caseSensitive";
-
-    public static final String LEX = "lex";
-
     public static final String DEFAULT_LEX = "mysql";
-
-    public static final String JDBC_PREFIX = "jdbc:calcite:";
 }

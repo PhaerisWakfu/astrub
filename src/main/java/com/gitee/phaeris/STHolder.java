@@ -3,7 +3,6 @@ package com.gitee.phaeris;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroupFile;
 
 import java.util.List;
@@ -28,9 +27,9 @@ public class STHolder {
      * @return instance
      */
     public static String getConfig(List<Schema> schemas, String def) {
-        ST st = ST_GROUP_FILE.getInstanceOf(ST_NAME_GET_CONFIG);
-        st.add(ST_ARG_SCHEMAS, schemas);
-        st.add(ST_ARG_DEFAULT, def);
-        return st.render();
+        return ST_GROUP_FILE.getInstanceOf(FUNC_GET_CONFIG)
+                .add(ARG_SCHEMAS, schemas)
+                .add(ARG_DEFAULT_SCHEMA, def)
+                .render();
     }
 }
