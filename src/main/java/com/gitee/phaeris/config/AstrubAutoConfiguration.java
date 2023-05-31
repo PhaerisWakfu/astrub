@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author wyh
- * @since 2023/4/24
+ * @since 2023/5/6
  */
 @ConditionalOnProperty(prefix = AstrubProperties.PREFIX, value = "enabled", havingValue = "true")
 @Configuration

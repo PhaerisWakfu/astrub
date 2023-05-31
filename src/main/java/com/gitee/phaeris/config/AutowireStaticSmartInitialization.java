@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author wyh
- * @since 2023/4/24
+ * @since 2023/5/6
  */
 @EnableConfigurationProperties(AstrubProperties.class)
 @Configuration

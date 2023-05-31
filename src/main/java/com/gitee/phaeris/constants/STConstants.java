@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author wyh
- * @since 2023/5/9
+ * @since 2023/5/6
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class STConstants {
