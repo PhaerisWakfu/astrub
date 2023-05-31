@@ -46,7 +46,7 @@ public class CalciteDatasource extends AbstractDataSource {
 
     @Override
     public Connection getConnection() throws SQLException {
-        return ConnectionHelper.getConnection(configPath, ignoreCase, lex);
+        return ConnectionHelper.getConnection(configPath, lex, ignoreCase);
     }
 
     @Override

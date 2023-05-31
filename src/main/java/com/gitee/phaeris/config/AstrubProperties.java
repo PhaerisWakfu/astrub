@@ -1,7 +1,6 @@
 package com.gitee.phaeris.config;
 
 import com.gitee.phaeris.Schema;
-import com.gitee.phaeris.constants.CalciteConstants;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -37,7 +36,7 @@ public class AstrubProperties {
     /**
      * sql语法解析器{@link org.apache.calcite.config.Lex}
      */
-    private String lex = CalciteConstants.DEFAULT_LEX;
+    private String lex;
 
     /**
      * 是否忽略大小写

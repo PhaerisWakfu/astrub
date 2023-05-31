@@ -13,4 +13,6 @@ public class CalciteConstants {
     public static final String CONFIG_PATH = "astrub.json";
 
     public static final String DEFAULT_LEX = "mysql";
+
+    public static final String SAFFRON_DEFAULT_CHARSET = "saffron.default.charset";
 }
