@@ -7,7 +7,7 @@
 <dependency>
     <groupId>com.gitee.phaeris</groupId>
     <artifactId>astrub</artifactId>
-    <version>1.1.0</version>
+    <version>${latest.version}</version>
 </dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
