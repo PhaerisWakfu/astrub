@@ -39,7 +39,8 @@
         <spring-boot.version>2.7.3</spring-boot.version>
         <string-template.version>4.3.3</string-template.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <hutool.version>5.7.21</hutool.version>
+        <hutool.version>5.8.19</hutool.version>
+        <postgresql.version>42.6.0</postgresql.version>
 
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -129,6 +130,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
