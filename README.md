@@ -1,6 +1,6 @@
-# Astrub
+# Astrub![version](https://img.shields.io/github/v/release/PhaerisWakfu/astrub)
 
-> 从 [scindapsus-calcite](https://gitee.com/phaeris/scindapsus/tree/master/calcite) 的jdbc部分演变而来，极简代码与配置，实现异构jdbc联合查询
+> 极简代码与配置，实现异构jdbc联合查询
 
 ## 引入依赖
 ```xml
