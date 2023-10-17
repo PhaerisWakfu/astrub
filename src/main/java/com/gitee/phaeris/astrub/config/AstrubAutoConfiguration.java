@@ -1,7 +1,7 @@
-package com.gitee.phaeris.config;
+package com.gitee.phaeris.astrub.config;
 
-import com.gitee.phaeris.CalciteDatasource;
-import com.gitee.phaeris.ConnectionHelper;
+import com.gitee.phaeris.astrub.CalciteDatasource;
+import com.gitee.phaeris.astrub.ConnectionHelper;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

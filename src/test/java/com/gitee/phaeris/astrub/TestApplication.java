@@ -1,4 +1,4 @@
-package com.gitee.phaeris;
+package com.gitee.phaeris.astrub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

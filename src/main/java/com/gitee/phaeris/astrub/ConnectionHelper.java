@@ -1,8 +1,9 @@
-package com.gitee.phaeris;
+package com.gitee.phaeris.astrub;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import com.gitee.phaeris.config.AstrubProperties;
+import com.gitee.phaeris.astrub.config.AstrubProperties;
+import com.gitee.phaeris.astrub.constants.CalciteConstants;
 import org.apache.calcite.config.CalciteConnectionProperty;
 import org.apache.calcite.jdbc.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
-
-import static com.gitee.phaeris.constants.CalciteConstants.*;
 
 /**
  * @author wyh
@@ -91,13 +90,13 @@ public class ConnectionHelper {
         // 配置文件路径
         info.setProperty(CalciteConnectionProperty.MODEL.camelName(), path);
         // 设置SQL解析器
-        info.setProperty(CalciteConnectionProperty.LEX.camelName(), StrUtil.isNotBlank(lex) ? lex : DEFAULT_LEX);
+        info.setProperty(CalciteConnectionProperty.LEX.camelName(), StrUtil.isNotBlank(lex) ? lex : CalciteConstants.DEFAULT_LEX);
         if (ignoreCase) {
             // 设置大小写不敏感
             info.setProperty(CalciteConnectionProperty.CASE_SENSITIVE.camelName(), String.valueOf(false));
         }
         //解决中文映射不对的问题
-        System.setProperty(SAFFRON_DEFAULT_CHARSET, StandardCharsets.UTF_8.name());
+        System.setProperty(CalciteConstants.SAFFRON_DEFAULT_CHARSET, StandardCharsets.UTF_8.name());
         return DriverManager.getConnection(Driver.CONNECT_STRING_PREFIX, info);
     }
 
@@ -113,7 +112,7 @@ public class ConnectionHelper {
             throw new IllegalArgumentException("Please set your schema config.");
         }
         String content = STHolder.getConfig(schemas, schemas.get(0).getName());
-        File file = FileUtil.file(CONFIG_PATH);
+        File file = FileUtil.file(CalciteConstants.CONFIG_PATH);
         if (file.exists()) {
             file.delete();
         }

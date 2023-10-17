@@ -1,4 +1,4 @@
 # Auto Configuration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.gitee.phaeris.config.AutowireStaticSmartInitialization,\
-com.gitee.phaeris.config.AstrubAutoConfiguration
+com.gitee.phaeris.astrub.config.AutowireStaticSmartInitialization,\
+com.gitee.phaeris.astrub.config.AstrubAutoConfiguration

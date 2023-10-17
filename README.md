@@ -71,8 +71,9 @@ create table phone
 ```
 
 ## 查询
+
 ```java
-import com.gitee.phaeris.ConnectionHelper;
+import ConnectionHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

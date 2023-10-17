@@ -1,4 +1,4 @@
-package com.gitee.phaeris;
+package com.gitee.phaeris.astrub;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -7,7 +7,7 @@ import org.stringtemplate.v4.STGroupFile;
 
 import java.util.List;
 
-import static com.gitee.phaeris.constants.STConstants.*;
+import static com.gitee.phaeris.astrub.constants.STConstants.*;
 
 /**
  * @author wyh

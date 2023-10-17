@@ -1,6 +1,6 @@
-package com.gitee.phaeris.config;
+package com.gitee.phaeris.astrub.config;
 
-import com.gitee.phaeris.Schema;
+import com.gitee.phaeris.astrub.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

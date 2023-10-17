@@ -1,4 +1,4 @@
-package com.gitee.phaeris.constants;
+package com.gitee.phaeris.astrub.constants;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
