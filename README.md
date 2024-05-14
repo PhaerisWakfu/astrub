@@ -45,7 +45,7 @@ astrub:
       password: root
     - name: pg
       driver: org.postgresql.Driver
-      url: jdbc:postgresql://localhost:5432/astrub
+      url: jdbc:postgresql://localhost:5432/astrub?currentSchema=mySchema
       user: postgres
       password: 123456
 ```
